@@ -24,8 +24,8 @@ namespace IPASS
 
             Clear();
 
-            Console.Write("Yeni Sifre yaratmaq ucun 1\nCixmaq ucun 0\n" +
-                "\nSeciminiz: ");
+            Console.Write("Create New Password 1\nExit 0\n" +
+                "\nOption: ");
 
             mainoption = int.Parse(Console.ReadLine());
 
@@ -38,10 +38,10 @@ namespace IPASS
             while (true)
             {
 
-                Console.Write("Sifre uzunlugunu daxil edin: ");
+                Console.Write("Enter length of password: ");
                 len = int.Parse(Console.ReadLine());
 
-                if (len >= 4 && len <= 15)
+                if (len >= 4 && len <= 16)
                 {
                     break;
                 }
@@ -49,7 +49,7 @@ namespace IPASS
                 {
                     Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Sifre minimum 4, maksimum 15 simvoldan ibaret ola biler!\n");
+                    Console.WriteLine("The password must contain a minimum of 4 characters and a maximum of 16!\n");
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
             }
@@ -62,9 +62,9 @@ namespace IPASS
             int option;
             while (true)
             {
-                Console.Write("Yalniz reqemli sifre uchun " +
-                       "1\nYalniz herfli sifre uchun 2\nQarisiq sifre (Tovsiye olunan) uchun 3" +
-                       "\n\nSifrenin formasini secin: ");
+                Console.Write("Only Number " +
+                       "1\nOnly Letters 2\nBoth mixed (recommended) 3" +
+                       "\n\nEnter type of password: ");
                 option = int.Parse(Console.ReadLine());
 
                 if (option >= 1 && option <= 3)
@@ -75,7 +75,7 @@ namespace IPASS
                 {
                     Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Duzgun sechim edilmedi! Yeniden yoxla!\n");
+                    Console.WriteLine("Not selected correctly! Try Again!\n");
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
             }
@@ -98,12 +98,12 @@ namespace IPASS
                 case 1: rpass.RandomPasswordOnlyNumbers(len); break;
                 case 2: rpass.RandomPasswordOnlyLetters(len); break;
                 case 3: rpass.RandomPasswordMixed(len); break;
-                default: Clear(); Console.WriteLine("Secimi duzgun daxil edin!\n"); break;
+                default: Clear(); Console.WriteLine("Choose the right option!\n"); break;
             }
 
             Clear();
-            Console.WriteLine("Sifre Yaradildi!");
-            Console.WriteLine($"Sizin Sifreniz: {rpass.randomPassword}");
+            Console.WriteLine("Password Created!");
+            Console.WriteLine($"Your password: {rpass.randomPassword}");
 
             info();
 

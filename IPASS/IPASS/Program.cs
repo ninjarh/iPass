@@ -24,12 +24,12 @@ namespace IPASS
                     case 0:
 
                         call.Clear();
-                        Console.WriteLine("Sifrelerinizi bize emanet etdiyiniz uchun teshekkurler!");
+                        Console.WriteLine("Thank you for trusting your passwords to us!");
                         call.info(); check = false; break;
 
                     case 1: call.newPassword(); break;
 
-                    default: Console.WriteLine("Duzgun sechim edilmedi! Yeniden yoxla!"); break;
+                    default: Console.WriteLine("Not selected correctly! Try Again!"); break;
                 }  
 
                 Console.ReadLine();
