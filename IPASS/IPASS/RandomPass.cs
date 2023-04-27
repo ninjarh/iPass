@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPass
+namespace IPASS
 {
     internal class RandomPass
     {
@@ -35,10 +35,26 @@ namespace IPass
 
         public void RandomPasswordMixed(int len)
         {
-
+            int checker=0;
             for (int i = 0; i < len; i++)
             {
                 password += src.Alphamixed[rand.Next(0, src.Alphamixed.Length)];
+
+                for(int j  = 0; j<10; j++)
+                { 
+                   string k = j.ToString();
+                    if(password.Contains(k))
+                    {
+                        checker++;
+                        
+                    }
+                }
+            }
+
+            if(checker == 0)
+            {
+                password = "";
+                RandomPasswordMixed(len);
             }
 
         }
